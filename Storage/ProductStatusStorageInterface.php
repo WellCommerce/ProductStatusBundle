@@ -10,34 +10,22 @@
  * please view the LICENSE file that was distributed with this source code.
  */
 
-namespace WellCommerce\Bundle\ProductStatusBundle\Context\Front;
+namespace WellCommerce\Bundle\ProductStatusBundle\Storage;
 
 use WellCommerce\Bundle\ProductStatusBundle\Entity\ProductStatusInterface;
 
 /**
- * Interface ProductStatusContextInterface
+ * Interface ProductStatusStorageInterface
  *
  * @author  Adam Piotrowski <adam@wellcommerce.org>
  */
-interface ProductStatusContextInterface
+interface ProductStatusStorageInterface
 {
-    /**
-     * @param ProductStatusInterface $productStatus
-     */
     public function setCurrentProductStatus(ProductStatusInterface $productStatus);
 
-    /**
-     * @return ProductStatusInterface
-     */
     public function getCurrentProductStatus() : ProductStatusInterface;
 
-    /**
-     * @return int
-     */
     public function getCurrentProductStatusIdentifier() : int;
 
-    /**
-     * @return bool
-     */
     public function hasCurrentProductStatus() : bool;
 }

@@ -10,52 +10,39 @@
  * please view the LICENSE file that was distributed with this source code.
  */
 
-namespace WellCommerce\Bundle\ProductStatusBundle\Context\Front;
+namespace WellCommerce\Bundle\ProductStatusBundle\Storage;
 
 use WellCommerce\Bundle\ProductStatusBundle\Entity\ProductStatusInterface;
 
 /**
- * Class ProductStatusContext
+ * Class ProductStatusStorage
  *
  * @author  Adam Piotrowski <adam@wellcommerce.org>
  */
-class ProductStatusContext implements ProductStatusContextInterface
+final class ProductStatusStorage implements ProductStatusStorageInterface
 {
     /**
      * @var ProductStatusInterface
      */
-    protected $currentProductStatus;
+    private $currentProductStatus;
 
-    /**
-     * {@inheritdoc}
-     */
     public function setCurrentProductStatus(ProductStatusInterface $productStatus)
     {
         $this->currentProductStatus = $productStatus;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getCurrentProductStatus() : ProductStatusInterface
     {
         return $this->currentProductStatus;
     }
     
-    /**
-     * {@inheritdoc}
-     */
     public function getCurrentProductStatusIdentifier() : int
     {
         return $this->getCurrentProductStatus()->getId();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function hasCurrentProductStatus() : bool
     {
         return $this->currentProductStatus instanceof ProductStatusInterface;
     }
-
 }
